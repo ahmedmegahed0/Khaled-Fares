@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+body {
+    /* Ivory/Cream paper base */
+    background-color: #fcf9f2;
+    /* Very subtle noise and texture to simulate fine linen paper */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    color: #2c3e50;
+    overflow-x: hidden;
+}
+
+/* Realistic blend mode for generated assets on white background */
+.blend-multiply {
+    mix-blend-mode: multiply;
+}
+
+/* Elegant handwriting font utility if we want to use an imported font */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Caveat:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes particle-fade {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--offsetX), var(--offsetY)) scale(0); }
+}
+
+.animate-particle-fade {
+  animation: particle-fade 1s ease-out forwards;
+}
+
+.font-script {
+    font-family: 'Great Vibes', cursive;
+}
+
+.font-serif-elegant {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-label-caps {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.font-handwriting {
+    font-family: 'Caveat', cursive;
+}
+
+.scrapbook-photo {
+    position: relative;
+    padding: 10px;
+    background: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(0,0,0,0.05);
+    transform: rotate(calc(-2deg + 4deg * var(--random, 0.5)));
+    transition: transform 0.4s ease;
+}
+.scrapbook-photo:hover {
+    transform: rotate(0deg) scale(1.02);
+    z-index: 50;
+}
+
+.gold-frame-wrapper {
+    position: relative;
+    display: inline-block;
+}
+.gold-frame-img {
+    position: absolute;
+    inset: -15%;
+    width: 130%;
+    height: 130%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+    transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: blur(10px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: blur(8px);
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: blur(8px);
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+@keyframes floatRomance {
+    0% {
+        transform: translateY(110vh) translateX(0) rotate(0deg);
+    }
+    33% {
+        transform: translateY(40vh) translateX(30px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(-20vh) translateX(-30px) rotate(240deg);
+    }
+    100% {
+        transform: translateY(-80vh) translateX(0) rotate(360deg);
+    }
+}
+
+.floating-romance-item {
+    position: absolute;
+    bottom: 0;
+    animation: floatRomance linear infinite;
+    will-change: transform;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+    transform: translateX(-50%);
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+.masonry-item img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.masonry-item:hover img {
+    transform: scale(1.08);
+}

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>E&amp;M Forever | Engagement Celebration</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#454634",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#b4b49d",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-surface-variant": "#4d4635",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffe088",
+                        "surface": "#f9f9f9",
+                        "background": "#f9f9f9",
+                        "on-surface": "#1a1c1c",
+                        "on-secondary-fixed-variant": "#574144",
+                        "on-background": "#1a1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "surface-tint": "#735c00",
+                        "on-primary-container": "#554300",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-primary-fixed": "#241a00",
+                        "primary": "#735c00",
+                        "secondary-container": "#f8d8db",
+                        "secondary": "#70585b",
+                        "surface-variant": "#e2e2e2",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#755d5f",
+                        "surface-bright": "#f9f9f9",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1b1d0e",
+                        "primary-container": "#d4af37",
+                        "on-secondary-fixed": "#281719",
+                        "tertiary-fixed-dim": "#c8c8b0",
+                        "inverse-primary": "#e9c349",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#474836",
+                        "secondary-fixed-dim": "#debfc2",
+                        "outline": "#7f7663",
+                        "tertiary": "#5e604d",
+                        "secondary-fixed": "#fbdbde",
+                        "tertiary-fixed": "#e4e4cc",
+                        "outline-variant": "#d0c5af",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-dim": "#dadada",
+                        "inverse-surface": "#2f3131"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "80px",
+                        "gutter": "24px",
+                        "margin-mobile": "24px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "16px",
+                        "container-max": "1120px",
+                        "stack-md": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "body-md": ["Poppins"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-lg": ["Poppins"],
+                        "label-caps": ["Poppins"],
+                        "headline-sm": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "300" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.15em", "fontWeight": "600" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.3", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #d4af37, transparent);
+            transform: translateX(-50%);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .masonry-item img {
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+
+<body class="bg-surface font-body-md text-on-surface overflow-x-hidden">
+    <!-- Top Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 glass-panel shadow-sm border-b border-white/20 transition-all duration-300">
+        <div class="flex justify-between items-center px-6 md:px-margin-desktop py-4 max-w-container-max mx-auto">
+            <div class="font-headline-md text-headline-md font-bold text-primary tracking-tight">E&amp;M Forever</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+                    href="#story">Our Story</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+                    href="#gallery">Gallery</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+                    href="#event">Event Details</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors"
+                    href="#rsvp">RSVP</a>
+                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors border-b-2 border-primary pb-1"
+                    href="#guestbook">Guestbook</a>
+            </div>
+            <button
+                class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-caps text-label-caps hover:bg-primary-container hover:text-on-primary-container transition-all duration-300 active:scale-95 shadow-lg">
+                Add to Calendar
+            </button>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img alt="Hero background" class="w-full h-full object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWXBGjff7WYFFGdASPHEMN1oIl1k2xmMyXaDOtG89ISQSu-gQMkYhopGIM8VXoIUPR5XYk937WH-WWRIw3pF23fIQ_0BKZu4dhnMkzXEFzgFXkq0k2PP8nCU__PtI7bhrDDcFTdZq91nhEAACA-r1fObae-OJLnUsCmcupxZXtSfGYeHQowXxSn_zH6-Gt2y_BKPSPmm4aAqGTY1EWpotSG5JcWc9Z-jd7oMEfCaNaYTABtqSDQYEL" />
+            <div class="absolute inset-0 bg-black/10"></div>
+            <!-- STITCH_SHADER_START:ANIMATION_4 class="absolute inset-0 w-full h-full opacity-60 pointer-events-none" -->
+            <div class="absolute inset-0 w-full h-full opacity-60 pointer-events-none" style="display:block;">
+                <canvas id="shader-canvas-ANIMATION_4" style="display:block;width:100%;height:100%"></canvas>
+                <script>
+                        (function () {
+                            const canvas = document.getElementById('shader-canvas-ANIMATION_4');
+
+                            // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+                            // This fires on initial layout and whenever the element is resized.
+                            function syncSize() {
+                                const w = canvas.clientWidth || 1280;
+                                const h = canvas.clientHeight || 720;
+                                if (canvas.width !== w || canvas.height !== h) {
+                                    canvas.width = w;
+                                    canvas.height = h;
+                                }
+                            }
+                            if (typeof ResizeObserver !== 'undefined') {
+                                new ResizeObserver(syncSize).observe(canvas);
+                            }
+                            syncSize();
+
+                            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                            if (!gl) return;
+                            const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+                            const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+// Simple noise function
+float noise(vec2 p) {
+    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+}
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Create a soft, flowing golden/ivory gradient
+    vec3 color1 = vec3(0.98, 0.97, 0.95); // Ivory
+    vec3 color2 = vec3(0.93, 0.89, 0.81); // Champagne
+    vec3 color3 = vec3(0.83, 0.69, 0.22); // Soft Gold
+    
+    float t = u_time * 0.2;
+    
+    // Animated wave pattern
+    float wave = sin(uv.x * 3.0 + t) * 0.5 + 0.5;
+    wave += sin(uv.y * 2.0 - t * 1.5) * 0.3;
+    
+    vec3 finalColor = mix(color1, color2, wave * 0.6);
+    finalColor = mix(finalColor, color3, pow(wave, 4.0) * 0.15);
+    
+    // Add some subtle "sparkles"
+    float sparkle = pow(noise(uv * 100.0 + t), 20.0);
+    finalColor += sparkle * 0.1 * color3;
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+                            function cs(type, src) {
+                                const s = gl.createShader(type);
+                                gl.shaderSource(s, src);
+                                gl.compileShader(s);
+                                return s;
+                            }
+                            const prog = gl.createProgram();
+                            gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+                            gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+                            gl.linkProgram(prog);
+                            gl.useProgram(prog);
+                            const buf = gl.createBuffer();
+                            gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+                            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+                            const pos = gl.getAttribLocation(prog, 'a_position');
+                            gl.enableVertexAttribArray(pos);
+                            gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+                            const uTime = gl.getUniformLocation(prog, 'u_time');
+                            const uRes = gl.getUniformLocation(prog, 'u_resolution');
+                            const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+                            // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+                            // Shaders that need normalized coords should use: u_mouse / u_resolution.
+                            let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+                            window.addEventListener('mousemove', (event) => {
+                                const rect = canvas.getBoundingClientRect();
+                                if (rect.width && rect.height) {
+                                    const nx = (event.clientX - rect.left) / rect.width;
+                                    const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+                                    mouse.x = nx * canvas.width;
+                                    mouse.y = ny * canvas.height;
+                                }
+                            });
+
+                            function render(t) {
+                                if (typeof ResizeObserver === 'undefined') syncSize();
+                                gl.viewport(0, 0, canvas.width, canvas.height);
+                                if (uTime) gl.uniform1f(uTime, t * 0.001);
+                                if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+                                if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+                                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                                requestAnimationFrame(render);
+                            }
+                            render(0);
+                        })();
+                </script>
+            </div>
+            <!-- STITCH_SHADER_END:ANIMATION_4 -->
+            <!-- STITCH_THREEJS_START:ANIMATION_5 class="absolute inset-0 w-full h-full pointer-events-none" -->
+            <div class="absolute inset-0 w-full h-full pointer-events-none" style="display:block;">
+                <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+                <div id="threejs-container-ANIMATION_5" style="width:100%;height:100%"></div>
+                <script>
+                    (function () {
+                        const container = document.getElementById('threejs-container-ANIMATION_5');
+                        const devicePixelRatio = window.devicePixelRatio || 1;
+                        // Floating Floral Particles Scene
+                        const scene = new THREE.Scene();
+                        const width = container.clientWidth || window.innerWidth;
+                        const height = container.clientHeight || window.innerHeight;
+                        const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+                        renderer.setSize(width, height);
+                        renderer.setPixelRatio(window.devicePixelRatio);
+                        container.appendChild(renderer.domElement);
+
+                        // Lighting
+                        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+                        scene.add(ambientLight);
+
+                        const pointLight = new THREE.PointLight(0xfff0e0, 1);
+                        pointLight.position.set(5, 5, 5);
+                        scene.add(pointLight);
+
+                        // Flower Petals (Simplified as soft pink planes/disks)
+                        const petalsCount = 40;
+                        const petalGeometry = new THREE.CircleGeometry(0.1, 8);
+                        const petalMaterial = new THREE.MeshPhongMaterial({
+                            color: 0xffd1dc, // Blush pink
+                            side: THREE.DoubleSide,
+                            transparent: true,
+                            opacity: 0.7
+                        });
+
+                        const petals = [];
+                        for (let i = 0; i < petalsCount; i++) {
+                            const petal = new THREE.Mesh(petalGeometry, petalMaterial);
+
+                            // Random position
+                            petal.position.set(
+                                (Math.random() - 0.5) * 10,
+                                (Math.random() - 0.5) * 10,
+                                (Math.random() - 0.5) * 5
+                            );
+
+                            // Random rotation
+                            petal.rotation.set(
+                                Math.random() * Math.PI,
+                                Math.random() * Math.PI,
+                                Math.random() * Math.PI
+                            );
+
+                            // Custom properties for animation
+                            petal.userData = {
+                                speed: 0.005 + Math.random() * 0.01,
+                                rotationSpeed: (Math.random() - 0.5) * 0.02,
+                                phase: Math.random() * Math.PI * 2
+                            };
+
+                            petals.push(petal);
+                            scene.add(petal);
+                        }
+
+                        camera.position.z = 5;
+
+                        function animate() {
+                            requestAnimationFrame(animate);
+
+                            petals.forEach(petal => {
+                                // Fall downwards
+                                petal.position.y -= petal.userData.speed;
+                                // Sway side to side
+                                petal.position.x += Math.sin(Date.now() * 0.001 + petal.userData.phase) * 0.002;
+
+                                // Rotate
+                                petal.rotation.x += petal.userData.rotationSpeed;
+                                petal.rotation.y += petal.userData.rotationSpeed;
+
+                                // Reset position if it falls out of view
+                                if (petal.position.y < -5) {
+                                    petal.position.y = 5;
+                                    petal.position.x = (Math.random() - 0.5) * 10;
+                                }
+                            });
+
+                            renderer.render(scene, camera);
+                        }
+
+                        window.addEventListener('resize', () => {
+                            const newWidth = container.clientWidth || window.innerWidth;
+                            const newHeight = container.clientHeight || window.innerHeight;
+                            camera.aspect = newWidth / newHeight;
+                            camera.updateProjectionMatrix();
+                            renderer.setSize(newWidth, newHeight);
+                        });
+
+                        animate();
+                    })();
+                </script>
+            </div>
+            <!-- STITCH_THREEJS_END:ANIMATION_5 -->
+        </div>
+        <div class="relative z-10 text-center text-white px-gutter">
+            <h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 drop-shadow-lg">Elias &amp;
+                Maya</h1>
+            <div class="h-[1px] w-24 bg-primary-fixed mx-auto mb-6"></div>
+            <p class="font-label-caps text-label-caps tracking-[0.3em] mb-2 uppercase opacity-90">Engagement Celebration
+            </p>
+            <p class="font-headline-sm text-headline-sm italic">08 . 06 . 2026</p>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-70">
+            <span class="material-symbols-outlined animate-bounce">expand_more</span>
+        </div>
+    </header>
+    <!-- Countdown Timer Section -->
+    <section class="py-stack-xl bg-surface-container-lowest relative">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <p class="font-label-caps text-label-caps text-primary mb-8 tracking-widest">THE COUNTDOWN BEGINS</p>
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <div class="glass-panel w-24 md:w-32 py-6 md:py-8 rounded-xl shadow-lg border-primary-fixed/30 reveal">
+                    <span class="block font-headline-md text-headline-md text-primary" id="days">--</span>
+                    <span class="font-label-caps text-[10px] text-on-surface-variant">DAYS</span>
+                </div>
+                <div class="glass-panel w-24 md:w-32 py-6 md:py-8 rounded-xl shadow-lg border-primary-fixed/30 reveal">
+                    <span class="block font-headline-md text-headline-md text-primary" id="hours">--</span>
+                    <span class="font-label-caps text-[10px] text-on-surface-variant">HOURS</span>
+                </div>
+                <div class="glass-panel w-24 md:w-32 py-6 md:py-8 rounded-xl shadow-lg border-primary-fixed/30 reveal">
+                    <span class="block font-headline-md text-headline-md text-primary" id="minutes">--</span>
+                    <span class="font-label-caps text-[10px] text-on-surface-variant">MINS</span>
+                </div>
+                <div class="glass-panel w-24 md:w-32 py-6 md:py-8 rounded-xl shadow-lg border-primary-fixed/30 reveal">
+                    <span class="block font-headline-md text-headline-md text-primary" id="seconds">--</span>
+                    <span class="font-label-caps text-[10px] text-on-surface-variant">SECS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Our Story Section -->
+    <section class="py-stack-xl bg-white overflow-hidden" id="story">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="text-center mb-stack-xl">
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Our Journey
+                </h2>
+                <div class="flex justify-center items-center gap-4">
+                    <div class="h-[1px] w-12 bg-outline-variant"></div>
+                    <span class="material-symbols-outlined text-primary"
+                        style="font-variation-settings: 'FILL' 1;">favorite</span>
+                    <div class="h-[1px] w-12 bg-outline-variant"></div>
+                </div>
+            </div>
+            <div class="relative timeline-line">
+                <!-- Timeline Event 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-stack-xl reveal">
+                    <div class="md:text-right md:order-1">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4">location_on</span>
+                        <h3 class="font-headline-sm text-headline-sm mb-2">The First Hello</h3>
+                        <p class="font-label-caps text-label-caps text-primary mb-4">JANUARY 2022</p>
+                        <p class="text-on-surface-variant body-md leading-relaxed">In a quiet bookstore in the heart of
+                            the city, a shared interest in classical literature sparked a conversation that would last a
+                            lifetime. Maya was reaching for 'The Great Gatsby' just as Elias was returning it.</p>
+                    </div>
+                    <div class="md:order-2">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl glass-panel p-2">
+                            <img class="w-full aspect-video object-cover rounded-xl"
+                                data-alt="A vintage, cozy bookstore interior with golden lighting, tall shelves filled with leather-bound books, and a soft cinematic atmosphere. The scene captures a sense of nostalgia and quiet romance, with a sophisticated warm color palette and delicate dust motes dancing in the light."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAibOsnBf1wcWOMZtZCThWiFm_sJRF8w9aiwjZyYy4gU1IrgY2ojeWBd8ThF-r1HtI8pCQFnt9L7PUqdFqrZi5My0aRkakIki9p0Y6lZqeO_qwTcswVYcHJBB8ckvH14VSpZmW4EcYLGosAYuyVtXJF0_U-QqhXREbdpt9dyPCk_9IQuiz4TqKlslmXE9v2DUkPAwSUEiVY2P8Y-XeiGMB-X33PaDLFZaL7cvejrS2GQ33le6wUQ-6g" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline Event 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-stack-xl reveal">
+                    <div class="md:order-2">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4">flight</span>
+                        <h3 class="font-headline-sm text-headline-sm mb-2">Parisian Summer</h3>
+                        <p class="font-label-caps text-label-caps text-primary mb-4">AUGUST 2024</p>
+                        <p class="text-on-surface-variant body-md leading-relaxed">Under the twinkling lights of the
+                            Eiffel Tower, they realized their connection was more than just a passing season. A summer
+                            spent exploring the cobblestone streets of Paris cemented their future together.</p>
+                    </div>
+                    <div class="md:order-1">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl glass-panel p-2">
+                            <img class="w-full aspect-video object-cover rounded-xl"
+                                data-alt="A romantic view of Paris at dusk, with the Eiffel Tower glowing in the distance. The foreground features charming cobblestone streets and soft glowing streetlights. The aesthetic is luxurious and cinematic, using a palette of soft gold and deep twilight blues to evoke elegance."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOrP4RwNeiFDNGVkBZbqiM8nhvzfytpoVaGB_j7ZufPG-XzoJ36vopQHDEsh8J3gbu8dEaTpg0XcxNipFswWRzmbtY80IQqOjg2xmPkwQZngsHFEyarYfj9fHvR69TmgsJ-x0QI-eyLwhsikMeskz-JjGHMWaqkpnL8uMucrUsSLJiyqBQkMmLIvP26jWZ_-1Q98_Zom37ufDwH0ReYcr2c0rEQ7RltUHEDLnouB0GnH-UZvOYC_Mi" />
+                        </div>
+                    </div>
+                </div>
+                <!-- Timeline Event 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center reveal">
+                    <div class="md:text-right md:order-1">
+                        <span class="material-symbols-outlined text-primary text-4xl mb-4"
+                            style="font-variation-settings: 'FILL' 1;">diamond</span>
+                        <h3 class="font-headline-sm text-headline-sm mb-2">The Yes</h3>
+                        <p class="font-label-caps text-label-caps text-primary mb-4">DECEMBER 2025</p>
+                        <p class="text-on-surface-variant body-md leading-relaxed">Amidst the snow-capped mountains of
+                            Switzerland, Elias asked the question that changed everything. In a moment of pure magic,
+                            Maya said yes, and their forever officially began.</p>
+                    </div>
+                    <div class="md:order-2">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl glass-panel p-2">
+                            <img class="w-full aspect-video object-cover rounded-xl"
+                                data-alt="A breathtaking landscape of the Swiss Alps covered in pristine white snow under a clear blue winter sky. The scene is majestic and high-end, featuring a sense of exclusive wonder and serene beauty, captured in a bright and crisp photographic style."
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdfLQrZfWt-dXNXC8d6ahPdNUoBAQ5x3sp8nKZmTy2lrKIJQfNhYThPzGBbb7IBQCBePmLvKi94aMNNU5Ttd393jxofKY2MIAp2zc74TAYarvgi17gbCBREixad7zeA8-LLVc07mpFSxM0MwNvBQHKyEvz4m1XDOg2Uv5rpPADN2e5xpgebdxvSSwJSRdT-ELtSb9p7c8_O7O9k06oMTEIaOY5qDaLdYQaxuU6Aen_XsmG8Sq2WvMV" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="py-stack-xl bg-surface-container-lowest" id="gallery">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-center mb-stack-md">The Moments
+            </h2>
+            <div class="columns-1 sm:columns-2 md:columns-3 gap-6 space-y-6">
+                <div class="masonry-item relative overflow-hidden rounded-2xl reveal shadow-md">
+                    <img class="w-full h-auto"
+                        data-alt="A luxurious lifestyle portrait of a happy couple in soft, warm evening light. They are dressed in elegant, minimalist attire, laughing together on a sun-drenched terrace. The image has a cinematic, high-fashion aesthetic with delicate lens flare and shallow depth of field."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAxcc2UCRG9VyrOWqEOyP-c06uaW4cPUD7exR8x0EwxKmPGqZh4ja3OuHBB6TM_Pc9bH-DQ4JSZc5C-W2KURZ_0BPdi9hB1bk1M4qJLaTc1fndhVW3lB9xwBEaK3AuyJUDlBQPOFcQNilkqgpHYl0X_Hy8sYpsKW1_w1U_Ma8m8ZH1vH63ST8s7eedA71PQDon8NX_zUwcun4YRo3vWtS1tY5Sh5VzLJtxqBHKGc3F4XNqyTgpFYAh" />
+                </div>
+                <div class="masonry-item relative overflow-hidden rounded-2xl reveal shadow-md">
+                    <img class="w-full h-auto"
+                        data-alt="Close up of two hands entwined, showing a brilliant diamond engagement ring catching the light. The background is a soft-focus bokeh of garden flowers in blush pink and cream. The image conveys intimate romance and high-end elegance with a soft ivory and gold palette."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuz9q4hJqmDl6MXFM1VRdC-5QZT9JpV-zbEk75vguFC7SlfnvIkXlwGtLlgls-bEEwNWWgvwvbxBmF8ynDeszYsffoxpE8O-mdpyLkIXO673HZWBYZUCoCg8Wz1UbJ75_3Fr0pyLj6gfvfvt111gLmVJ6xAJ6TbAkc6Qv0LeWQ1LRHo3-R7ROx_bfej-bGFPDrnaeKHoyvRq7VWZeoIK8wHqD82gZvebYfPJkgQaaW5bJClnHyJPCr" />
+                </div>
+                <div class="masonry-item relative overflow-hidden rounded-2xl reveal shadow-md">
+                    <img class="w-full h-auto"
+                        data-alt="An artistic black and white photograph of a couple dancing in a grand ballroom. The composition is dynamic and sophisticated, with long shadows and brilliant highlights on silk and velvet textures, evoking a sense of timeless luxury."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqyzEXfA7i7jjrXJ-17Ha30UZ8lHRZJBezrXqi7ygTUQIBSubk-o86broHiRiieLdNBjSpyNqKtENFeW1TpTEMFhOihrmv3KZ6QSB7wOL8_1h0fRxwwbGmP7pkYgT_X1ZCVM-I7W5o5L6siRa21yrRIb6w5hxIizGTPynTYVlmfQMs4v2bXyTt0y0iRX_AKNMeSPd_hJ5-SoG7kLMS5hekamwGpUyj7ZKOXz8KB5iWLY6xwiKP8u03" />
+                </div>
+                <div class="masonry-item relative overflow-hidden rounded-2xl reveal shadow-md">
+                    <img class="w-full h-auto"
+                        data-alt="A beautifully set dinner table for two on a balcony overlooking the Mediterranean sea. Crystal glasses and silver cutlery sparkle under the setting sun. The mood is exclusive and romantic, utilizing a warm golden hour color palette."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBasF2a6njOT32reniS-MpecVRMm0NDs627UqM7OJF5xDgMeG9Wcq_YbHO2wKrgZV0UlHkFdgIA2oZFbjrd1qcox8kwbKdtBceusJSxC7mrRieVFqe409qScb5N3o87JTBADWy2-kL3I_3jBU2d9hrTPoCnDyiKhpPrpHXeQnqZ9IIjdkIEA2G_1qjfBobSTzI90fXhFBdRwqRVocKr3JVul9foLnM0DYo0IdDYd-xS0mMzqdaU6cSA" />
+                </div>
+                <div class="masonry-item relative overflow-hidden rounded-2xl reveal shadow-md">
+                    <img class="w-full h-auto"
+                        data-alt="A candid shot of the couple sharing a champagne toast. Bubbles catch the light in the tall flutes. The lighting is sophisticated and warm, capturing a celebratory and joyful atmosphere within a luxurious setting."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2XtEBwh3w1nE6rs9NjjER3HojCcZWX0HEbfoxQ-nfYY6AdzLYA1HK8vivvH1z9RAdmEuSB-NZQh5NOTJ-zZetjFTeczKUghJwqf3flh2WecNavKH3rXK19xOy1HdzHkbLB-KaXpOXKGlr_C9LqOAi-M4bOd5kR_C87oUx5WHcMeIJLhljbrCA_SgqtScRY5EuoHP-Bix8JTqjWzyyD7JeZQd8Y2eFiv9YprlfjRvC2ihXi5ngwEP0" />
+                </div>
+                <div class="masonry-item relative overflow-hidden rounded-2xl reveal shadow-md">
+                    <img class="w-full h-auto"
+                        data-alt="A wide shot of a luxury yacht on a calm turquoise ocean during sunset. The sky is painted in hues of pink, orange, and gold. The overall feeling is one of adventurous luxury and serene romance."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC3sBbQy3p4PT9BQEWbeRxhK7glSQ313zObGCxrbLUQgxA6Lng8SQ_Fs4ksRu06cvZRLfXDxUp3wH9P-iqwmRtVGwWU7DYsengivszvVwbKraNihQ1_SJPxT2_QbcqwHB8JuqBLfpAhv47JvKOpcs-mZRcBY9gFFSp3H2CqOtehRXIhKRFPK8XOXEVqZocGa3GsE0PyO6Kx-ue-u-Pn5qRjYy3yDBJ8OPfmdax2pCl26mQY1uEPiVv" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Event Details Section -->
+    <section class="py-stack-xl bg-surface" id="event">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="text-center mb-stack-xl">
+                <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-2">The Celebration</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">We are delighted to share
+                    this special milestone with our closest friends and family.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Ceremony -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-500">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">church</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">The Ceremony</h3>
+                    <p class="font-label-caps text-label-caps text-on-surface-variant mb-6">04:00 PM - 05:30 PM</p>
+                    <p class="body-md mb-6">St. Regis Garden<br />123 Luxury Lane, Riviera</p>
+                    <button class="text-primary font-label-caps text-label-caps hover:underline">VIEW MAP</button>
+                </div>
+                <!-- Reception -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-500 bg-primary/5">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">celebration</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">The Reception</h3>
+                    <p class="font-label-caps text-label-caps text-on-surface-variant mb-6">06:00 PM - 11:00 PM</p>
+                    <p class="body-md mb-6">The Golden Ballroom<br />Palais Royale, Coastal Drive</p>
+                    <button class="text-primary font-label-caps text-label-caps hover:underline">RSVP NOW</button>
+                </div>
+                <!-- Accommodations -->
+                <div
+                    class="glass-panel p-8 rounded-3xl reveal flex flex-col items-center text-center shadow-xl hover:-translate-y-2 transition-transform duration-500">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">hotel</span>
+                    </div>
+                    <h3 class="font-headline-sm text-headline-sm mb-4 text-primary">Stay With Us</h3>
+                    <p class="font-label-caps text-label-caps text-on-surface-variant mb-6">GROUP RATES AVAILABLE</p>
+                    <p class="body-md mb-6">Riviera Grand Resort<br />Book by July 15th</p>
+                    <button class="text-primary font-label-caps text-label-caps hover:underline">BOOK ROOM</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Guestbook Section -->
+    <section class="py-stack-xl bg-white" id="guestbook">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Wishes &amp; Love</h2>
+                    <p class="body-lg mb-8 text-on-surface-variant">Please leave a message for the happy couple. Your
+                        words of wisdom and love will be cherished forever.</p>
+                    <form class="space-y-6" id="wishForm">
+                        <div class="relative">
+                            <input
+                                class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3 px-0 font-body-md placeholder:text-on-surface-variant/40"
+                                placeholder="Your Name" required="" type="text" />
+                        </div>
+                        <div class="relative">
+                            <textarea
+                                class="w-full bg-transparent border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3 px-0 font-body-md placeholder:text-on-surface-variant/40 resize-none"
+                                placeholder="Your Message" required="" rows="4"></textarea>
+                        </div>
+                        <button
+                            class="w-full py-4 bg-primary text-on-primary rounded-xl font-label-caps text-label-caps shadow-lg hover:shadow-primary/30 transition-all active:scale-95"
+                            type="submit">SEND WISHES</button>
+                    </form>
+                </div>
+                <div class="reveal max-h-[600px] overflow-y-auto pr-4 custom-scrollbar">
+                    <div class="space-y-6">
+                        <div class="glass-panel p-6 rounded-2xl shadow-sm border-l-4 border-primary">
+                            <p class="italic text-on-surface body-md mb-4">"May your journey together be as beautiful
+                                and endless as the horizon we saw in Paris. So happy for both of you!"</p>
+                            <p class="font-label-caps text-label-caps text-primary">- SOPHIA &amp; JAMES</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-2xl shadow-sm border-l-4 border-outline-variant">
+                            <p class="italic text-on-surface body-md mb-4">"Wishing you a lifetime of laughter, growth,
+                                and unconditional love. Can't wait to celebrate with you!"</p>
+                            <p class="font-label-caps text-label-caps text-primary">- MARCUS T.</p>
+                        </div>
+                        <div class="glass-panel p-6 rounded-2xl shadow-sm border-l-4 border-outline-variant">
+                            <p class="italic text-on-surface body-md mb-4">"True love is a rarity. It's beautiful to see
+                                it flourishing so brightly in you two. Congratulations!"</p>
+                            <p class="font-label-caps text-label-caps text-primary">- GRANDMA ROSE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full py-stack-md bg-surface-container-lowest border-t border-outline-variant/30">
+        <div class="flex flex-col items-center gap-4 px-margin-desktop text-center">
+            <div class="font-headline-sm text-headline-sm text-primary">E&amp;M</div>
+            <div class="flex gap-6 mb-2">
+                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps"
+                    href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-primary transition-colors font-label-caps text-label-caps"
+                    href="#">Contact Us</a>
+            </div>
+            <p class="font-body-md text-on-surface-variant/70 text-sm">© 2026 E&amp;M. Crafted with love for our special
+                day.</p>
+        </div>
+    </footer>
+    <!-- Floating UI Controls -->
+    <div class="fixed bottom-8 right-8 z-[100] flex flex-col gap-4">
+        <button
+            class="glass-panel w-12 h-12 rounded-full flex items-center justify-center text-primary shadow-xl hover:scale-110 transition-transform active:scale-95"
+            id="musicToggle">
+            <span class="material-symbols-outlined" id="musicIcon">music_note</span>
+        </button>
+        <a class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform active:scale-95"
+            href="#rsvp">
+            <span class="material-symbols-outlined">edit_calendar</span>
+        </a>
+    </div>
+    <script>
+        // Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Countdown Logic
+        const targetDate = new Date("August 6, 2026 16:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = targetDate - now;
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").innerText = h;
+            document.getElementById("minutes").innerText = m;
+            document.getElementById("seconds").innerText = s;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Music Toggle Simulation
+        let isPlaying = false;
+        const musicToggle = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+
+        musicToggle.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            musicIcon.innerText = isPlaying ? 'pause' : 'music_note';
+            if (isPlaying) {
+                musicIcon.classList.add('animate-spin');
+                setTimeout(() => musicIcon.classList.remove('animate-spin'), 1000);
+            }
+        });
+
+        // Form Submit Simulation
+        document.getElementById('wishForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "THANK YOU!";
+            btn.classList.replace('bg-primary', 'bg-tertiary');
+
+            // Trigger confetti effect simulation
+            for (let i = 0; i < 50; i++) {
+                const conf = document.createElement('div');
+                conf.style.position = 'fixed';
+                conf.style.left = Math.random() * 100 + 'vw';
+                conf.style.top = '-10px';
+                conf.style.width = '10px';
+                conf.style.height = '10px';
+                conf.style.backgroundColor = ['#e9c349', '#ffe088', '#d4af37'][Math.floor(Math.random() * 3)];
+                conf.style.borderRadius = '50%';
+                conf.style.zIndex = '9999';
+                conf.style.transition = `all ${Math.random() * 2 + 1}s ease-out`;
+                document.body.appendChild(conf);
+
+                setTimeout(() => {
+                    conf.style.transform = `translateY(100vh) rotate(${Math.random() * 360}deg)`;
+                    conf.style.opacity = '0';
+                }, 10);
+
+                setTimeout(() => conf.remove(), 3000);
+            }
+
+            e.target.reset();
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.replace('bg-tertiary', 'bg-primary');
+            }, 3000);
+        });
+
+        // Navbar Scroll Styling
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('py-2', 'bg-white/80');
+                nav.classList.remove('py-4', 'bg-white/45');
+            } else {
+                nav.classList.remove('py-2', 'bg-white/80');
+                nav.classList.add('py-4', 'bg-white/45');
+            }
+        });
+    </script>
+</body>
+
+</html>
