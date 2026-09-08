@@ -12,7 +12,7 @@ export default function QuoteSection() {
                 
                 <div className="flex items-center gap-6 w-full justify-center opacity-80">
                     <div className="h-[1px] w-16 md:w-24 bg-gradient-to-r from-transparent to-[#d4af37]/70"></div>
-                    <span className="text-[#1c2833] text-xs font-label-caps tracking-[0.3em] uppercase">Khaled &amp; Hoda</span>
+                    <span className="text-[#1c2833] text-xs font-label-caps tracking-[0.3em] uppercase">Khaled &amp; Huda</span>
                     <div className="h-[1px] w-16 md:w-24 bg-gradient-to-l from-transparent to-[#d4af37]/70"></div>
                 </div>
             </div>

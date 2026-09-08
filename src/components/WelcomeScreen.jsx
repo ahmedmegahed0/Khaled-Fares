@@ -50,7 +50,7 @@ export default function WelcomeScreen({ onOpen }) {
                 <div className="flex flex-col items-center mb-10">
                     <span className="font-serif-elegant italic text-xl text-[#2c3e50]/70 mb-4">You are cordially invited to the engagement of</span>
                     <h1 className="font-serif-elegant text-5xl md:text-6xl font-normal text-[#1c2833] mb-4 tracking-wide text-center">
-                        Khaled <span className="text-[#d4af37] italic font-script px-2 text-6xl">&amp;</span> Hoda
+                        Khaled <span className="text-[#d4af37] italic font-script px-2 text-6xl">&amp;</span> Huda
                     </h1>
                 </div>
 

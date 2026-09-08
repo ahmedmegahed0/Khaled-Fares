@@ -8,7 +8,7 @@ export default function Hero() {
                 <p className="font-label-caps text-label-caps tracking-[0.4em] mb-6 uppercase text-[#a58623] font-bold">Engagement Celebration</p>
                 <h1 className="font-script text-7xl md:text-9xl mb-4 text-[#1c2833] leading-tight">Khaled</h1>
                 <h1 className="font-script text-5xl md:text-7xl mb-4 text-[#d4af37] leading-tight">&amp;</h1>
-                <h1 className="font-script text-7xl md:text-9xl mb-8 text-[#1c2833] leading-tight">Hoda</h1>
+                <h1 className="font-script text-7xl md:text-9xl mb-8 text-[#1c2833] leading-tight">Huda</h1>
                 
                 <div className="h-[2px] w-32 bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-8 opacity-70"></div>
                 
